@@ -245,8 +245,32 @@ from
         on k.hometeam_id like ht.team_id
     join team at
         on k.hometeam_id like at.team_id
-        
+       ; 
    
+-- SOCCER_SQL_015
 -- STADIUM 에 등록된 운동장 중에서
 -- 홈팀이 없는 경기장까지 전부 나오도록
 -- 카운트 값은 20 , 일산 밑에 마산, 안양도 있음
+
+
+
+
+
+
+-- SOCCER_SQL_016
+-- 소속이 삼성블루윙즈 팀인 선수들과
+-- 드래곤즈팀인 선수들의 선수 정보
+SELECT 
+    T.TEAM_NAME 팀명,
+    P.PLAYER_NAME 선수명,
+    P.POSITION 포지션,
+    P.BACK_NO 백넘버,
+    P.HEIGHT 키
+FROM PLAYER P
+    JOIN TEAM T
+        ON P.TEAM_ID LIKE T.TEAM_ID
+WHERE 
+    T.TEAM_ID IN ( 
+    (SELECT T.TEAM_ID FROM TEAM WHERE T.TEAM_NAME IN ('삼성블루윙즈', '드래곤즈')
+    ))
+;
