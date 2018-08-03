@@ -289,6 +289,20 @@ INSERT INTO MEMBER (MEMID,
              '30',
              '',
              '');
+
+INSERT INTO MEMBER 
+(MEMID, TEAMID, NAME, AGE, ROLL, SSN, PASSWORD)
+values(
+'test',
+'t',
+'t',
+5,
+'t',
+'t',
+'t');
+
+
+
              
 UPDATE MEMBER SET ROLL = (
 CASE WHEN MEMID LIKE '%1'
